@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Success</title>
+</head>
+<body>
+    <h1>Order Placed Successfully!</h1>
+    <p>Thank you for your purchase. Your order has been placed and is being processed.</p>
+    <a href="{% url 'order_list' %}">View Your Orders</a>
+    <a href="{% url 'place_order' %}">Continue Shopping</a>
+</body>
+</html>
+{% endblock %}

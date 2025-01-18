@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% block title %}Home{% endblock %}
+{% block content %}
+<div class="offers">
+    <h2>Exclusive Offers</h2>
+    <div class="offers-container">
+        {% for offer in offers %}
+        <div class="offer-item">
+            <img src="{{ offer.image.url }}" alt="{{ offer.title }}" class="offer-image">
+            <h3>{{ offer.title }}</h3>
+            <p>{{ offer.description }}</p>
+            <p>Discount: {{ offer.discount }}%</p>
+            <a href="{% url 'products_with_offer' offer.id %}" class="shop-now-btn">Shop Now</a>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+<div class="products">
+    {% for product in products %}
+    <div class="product-item">
+        <img src="{{ product.image.url }}" alt="{{ product.name }}">
+        <p>{{ product.name }}</p>
+        <p>Rs.{{ product.price }}</p>
+        <p>{{ product.description }}</p>
+        <form action="{% url 'add_to_cart' product.id %}" method="post">
+            {% csrf_token %}
+            <button type="submit">Add to Cart</button>
+        </form>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}

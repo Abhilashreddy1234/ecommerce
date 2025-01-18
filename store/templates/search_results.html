@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% block title %}Search Results{% endblock %}
+{% block content %}
+<h1>Search Results for "{{ query }}"</h1>
+{% if results %}
+<div class="products">
+    {% for product in results %}
+    <div class="product-item">
+        <img src="{{ product.image.url }}" alt="{{ product.name }}">
+        <p>{{ product.name }}</p>
+        <p>Rs.{{ product.price }}</p>
+        <p>{{ product.description }}</p>
+        <form action="{% url 'add_to_cart' product.id %}" method="post">
+            {% csrf_token %}
+            <button type="submit">Add to Cart</button>
+        </form>
+    </div>
+    {% endfor %}
+</div>
+{% else %}
+<p>No products found matching your query.</p>
+{% endif %}
+{% endblock %}

@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>Exclusive Offers</h1>
+<div class="offers-container">
+    {% for offer in offers %}
+    <div class="offer-item">
+        <img src="{{ offer.image.url }}" alt="{{ offer.title }}" class="offer-image">
+        <h2>{{ offer.title }}</h2>
+        <p>{{ offer.description }}</p>
+        <p>Discount: {{ offer.discount }}%</p>
+        <a href="{% url 'products_with_offer' offer.id %}" class="shop-now-btn">Shop Now</a>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}
