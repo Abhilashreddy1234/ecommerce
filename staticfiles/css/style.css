@@ -1,0 +1,567 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+.top-bar {
+    background-color: orangered;
+    color: #333;
+    padding: 10px 0px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #ddd;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    font-size: 0.9rem;
+}
+
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #fff; /* Ensure a clear contrast from the top bar */
+    color: #000; /* Update for visibility */
+    padding: 5px 20px; /* Reduced padding for smaller height */
+    margin-top: 0px; /* Matches the height of the .top-bar */
+    left: 0;
+    width: 100%;
+    z-index: 999;
+    height: 50px; /* Reduced height */
+    position: fixed; /* Fixes navbar position */
+    top: 40px; /* Below the .top-bar */
+    border-bottom: 1px solid #ddd; /* Optional border for separation */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Adds subtle shadow for better visibility */
+}
+
+.nav-links a,
+.nav-links-right a {
+    color: black;
+    text-decoration: none;
+    margin: 0 10px;
+    padding: 5px 10px;
+    font-size: 0.9rem; /* Slightly smaller font for compact design */
+}
+
+.logo-image {
+    height: 50px; /* Adjust height to match navbar */
+    width: auto; /* Maintain aspect ratio */
+}
+
+.search-form input {
+    padding: 5px;
+    margin-right: 5px;
+    font-size: 0.9rem; /* Matches the smaller navbar design */
+}
+
+
+
+main {
+    padding: 20px;
+    margin: 20px auto;
+    background-color: white;
+    border-radius: 8px;
+}
+
+h1, h2 {
+    color: black;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+ul li {
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+}
+
+ul li:last-child {
+    border-bottom: none;
+}
+
+
+.social-icons a {
+    margin-right: 10px;
+    text-decoration: none;
+    color: #333;
+    font-size: 1.2em;
+}
+
+.social-icons a:hover {
+    color: #007bff;
+}
+
+.contact a {
+    text-decoration: none;
+    color: #333;
+    font-size: 1em;
+}
+
+.contact a:hover {
+    color: #007bff;
+}
+
+.notification {
+    position: relative;
+    overflow: hidden;
+    white-space: nowrap;
+    flex: 1; 
+    text-align: center;
+    margin: 0 20px; 
+}
+
+.scrolling-text {
+    display: inline-block;
+    padding-left: 100%; /* Start from outside the container */
+    animation: scroll 15s linear infinite;
+    white-space: nowrap;
+    font-size: 1em;
+    color: #333;
+}
+
+/* Keyframes for scrolling effect */
+@keyframes scroll {
+    from {
+        transform: translateX(100%);
+    }
+    to {
+        transform: translateX(-100%);
+    }
+}
+
+.offers {
+    margin: 80px 0;
+    text-align: center;
+    padding: 20px;
+    border-radius: 16px;
+    width: auto;
+    height:400px;
+    position: relative;
+    overflow: hidden;
+    border: 4px solid transparent; /* Base for the glowing border */
+    background-clip: padding-box;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+}
+
+.offers::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 16px;
+    border: 4px solid;
+    border-image-source: linear-gradient(45deg, #ff4d4d, #ffa64d, #4d94ff, #8c4dff, #ff4dc3);
+    border-image-slice: 1;
+    animation: glowingBorder 3s linear infinite; /* Animated glowing effect */
+    pointer-events: none; /* Ensures this layer doesn't interfere with interactions */
+    z-index: 1; /* Ensures it stays above the background but below the content */
+}
+
+.offers h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: #333;
+    animation: fadeInDown 1s ease-in-out;
+    position: relative;
+    z-index: 2; /* Keeps text above the border animation */
+}
+
+.offers-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: space-evenly;
+    position: relative;
+    z-index: 2; /* Keeps offer items above the border animation */
+    height: 300px;
+}
+
+.offer-item {
+    background: white;
+    border: 2px solid transparent;
+    border-radius: 12px;
+    padding: 15px;
+    width: calc(25% - 20px); /* 4 items per row */
+    box-sizing: border-box;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.offer-item:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    border-color: #ffa64d; /* Highlight the border on hover */
+}
+
+.offer-item img {
+    width: 70%;
+    height: 200px;
+    border-radius: 8px;
+    margin-bottom: -20px;
+    animation: fadeIn 1s ease-in-out;
+}
+
+.offer-item h3 {
+    font-size: 18px;
+    color: #555;
+    margin-bottom: 10px;
+}
+
+.offer-item p {
+    font-size: 14px;
+    color: #777;
+}
+
+.offer-item p strong {
+    color: #333;
+}
+
+/* Keyframes for Border Glow Animation */
+@keyframes glowingBorder {
+    0% {
+        border-image-source: linear-gradient(45deg, #ff4d4d, #ffa64d, #4d94ff, #8c4dff, #ff4dc3);
+    }
+    50% {
+        border-image-source: linear-gradient(45deg, #4d94ff, #8c4dff, #ff4dc3, #ff4d4d, #ffa64d);
+    }
+    100% {
+        border-image-source: linear-gradient(45deg, #ffa64d, #4d94ff, #8c4dff, #ff4dc3, #ff4d4d);
+    }
+}
+
+/* Keyframes for Fade-In Effects */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Keyframes for animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slideInUp {
+    from {
+        transform: translateY(20px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+.products {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: space-evenly;
+    padding: 20px;
+    background: linear-gradient(135deg, #f7f7f7, #eaeaea);
+    border-radius: 10px;
+    height:200px;
+}
+
+.product-item {
+    flex: 1 1 calc(25% - 20px); /* Adjusts to fit four items in a row */
+    box-sizing: border-box;
+    border-radius: 8px;
+    padding: 15px;
+    text-align: center;
+    background-color: #fff;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.product-item:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.product-item img {
+    max-width: 100%;
+    height: auto; /* Maintain aspect ratio */
+    max-height: 200px; /* Limit the height */
+    margin-bottom: 15px;
+    border-radius: 5px;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.product-item img:hover {
+    transform: scale(1.05);
+}
+
+.product-item h3 {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.product-item p {
+    font-size: 0.95rem;
+    color: #666;
+    margin-bottom: 15px;
+}
+
+.product-item button {
+    padding: 10px 20px;
+    font-size: 0.95rem;
+    font-weight: bold;
+    color: #fff;
+    background-color: orangered;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.product-item button:hover {
+    background-color: #0056b3;
+    transform: scale(1.05);
+}
+
+@media (max-width: 1024px) {
+    .product-item {
+        flex: 1 1 calc(33.333% - 20px); /* Three items in a row */
+    }
+}
+
+@media (max-width: 768px) {
+    .product-item {
+        flex: 1 1 calc(50% - 20px); /* Two items in a row */
+    }
+}
+
+@media (max-width: 480px) {
+    .product-item {
+        flex: 1 1 100%; /* Single item per row */
+    }
+}
+
+
+.search-form input {
+    flex-grow: 1; 
+    max-width: 600px; 
+    padding: 10px; 
+    border: 1px solid #ccc; 
+    border-radius: 20px; 
+    outline: none; 
+    font-size: 16px;
+}
+
+
+.search-form button:hover {
+    background-color: #0056b3; /* Darker color on hover */
+}
+
+
+
+.search-form button {
+    padding: 5px 10px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    
+}
+
+.search-form button:hover {
+    background-color: #0056b3;
+}
+/* General container styling */
+.cart-container {
+    display: flex;
+    flex-wrap: wrap; /* Allows items to wrap to the next row */
+    gap: 20px; /* Space between cart items */
+    justify-content: space-between; /* Adjusts spacing between items */
+    margin: 20px auto; /* Centers the cart and adds vertical spacing */
+    max-width: 1200px; /* Limits the width of the cart */
+}
+
+/* Individual cart item styling */
+.cart-item {
+    display: flex;
+    flex-direction: column; /* Ensures content is stacked */
+    align-items: center; /* Centers the content horizontally */
+    padding: 15px;
+    border: 1px solid #ccc; /* Adds a light border for definition */
+    border-radius: 8px; /* Rounds the corners */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Adds a subtle shadow */
+    width: calc(33.33% - 20px); /* Adjusts width for three items per row */
+    box-sizing: border-box; /* Includes padding in the width */
+    background-color: #fff; /* Sets a clean white background */
+}
+
+/* Image styling */
+.cart-item img {
+    width: 80%; /* Set image width relative to the cart item */
+    height: auto;
+    max-width: 150px; /* Ensure the image doesn’t exceed a specific size */
+}
+
+
+/* Item details styling */
+.item-details {
+    text-align: center; /* Centers all text */
+}
+
+.item-details h3 {
+    font-size: 18px;
+    margin: 10px 0;
+    color: #333;
+}
+
+.item-details p {
+    font-size: 14px;
+    color: #666;
+    margin: 5px 0;
+}
+
+.item-details strong {
+    color: #000;
+}
+
+/* Remove button styling */
+.remove-btn {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 8px 12px;
+    background-color: #ff4d4d; /* Red color for remove button */
+    color: #fff;
+    text-decoration: none;
+    font-size: 14px;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+}
+
+.remove-btn:hover {
+    background-color: #e60000; /* Darker red on hover */
+}
+
+/* Total price styling */
+.total-price {
+    text-align: right;
+    font-size: 18px;
+    font-weight: bold;
+    color: #000;
+    margin: 20px auto;
+}
+
+/* Empty cart message styling */
+.cart-container + p {
+    text-align: center;
+    font-size: 16px;
+    color: #888;
+    margin: 40px auto;
+}
+/* Container for the category products */
+.category-products-container {
+    display: flex;
+    flex-direction: column; /* Ensures products are arranged in a column */
+    gap: 20px; /* Adds space between products */
+    margin: 20px auto;
+    max-width: 800px; /* Limits the width of the container */
+    padding: 0 15px; /* Adds padding for small screens */
+}
+
+/* Individual product styling */
+.category-product {
+    display: flex; /* Aligns image and details side by side */
+    flex-wrap: wrap;
+    gap: 15px; /* Space between image and details */
+    padding: 15px;
+    border: 1px solid #ccc; /* Adds a light border */
+    border-radius: 8px; /* Rounds the corners */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow for definition */
+    background-color: #fff; /* Clean white background */
+    align-items: center; /* Vertically aligns image and text */
+}
+
+/* Image styling */
+.product-image {
+    width: 150px; /* Fixes image width */
+    height: auto; /* Maintains aspect ratio */
+    border-radius: 4px; /* Slight rounding of the image edges */
+}
+
+/* Product details styling */
+.product-details {
+    flex: 1; /* Allows the details to take up remaining space */
+}
+
+.product-details h2 {
+    font-size: 18px;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.product-details p {
+    font-size: 14px;
+    color: #555;
+    margin: 5px 0;
+}
+
+.product-details strong {
+    color: #000;
+}
+
+/* Back button styling */
+.back-btn {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 10px 15px;
+    background-color: #007bff; /* Blue background */
+    color: #fff;
+    text-decoration: none;
+    font-size: 14px;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+}
+
+.back-btn:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+}
