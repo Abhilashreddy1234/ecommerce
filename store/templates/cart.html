@@ -16,7 +16,7 @@
     </div>
     {% endfor %}
 </div>
-<p class="total-price"><strong>Total Price: ${{ total_price }}</strong></p>
+<p class="total-price"><strong>Total Price: {{ total_price }}</strong></p>
 <form action="{% url 'place_order' %}" method="post">
     {% csrf_token %}
     <button type="submit">Place Order</button>

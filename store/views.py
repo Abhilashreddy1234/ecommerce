@@ -7,7 +7,7 @@ from django.contrib.auth.decorators import login_required
 def home(request):
     categories = Category.objects.all()
     products = Product.objects.all()
-    offers = Offer.objects.all()  # Fetch all offers
+    offers = Offer.objects.all()  
     return render(request, 'home.html', {'categories': categories, 'products': products, 'offers': offers})
 def product_list(request):
     products = Product.objects.all()
@@ -59,10 +59,12 @@ def view_cart(request):
     items = CartItem.objects.filter(user=request.user)
     total_price = sum(item.product.price * item.quantity for item in items)
     return render(request, 'cart.html', {'items': items, 'total_price': total_price})
-@login_required
 def place_order(request):
-    customer = Customer.objects.get(user=request.user)
+    customer = get_object_or_404(Customer, user=request.user)  # Handles missing Customer gracefully
     cart_items = CartItem.objects.filter(user=request.user)
+    if not cart_items.exists():
+        return redirect('cart_empty')  # Redirect if no items in the cart
+
     total_price = sum(item.product.price * item.quantity for item in cart_items)
     order = Order.objects.create(customer=customer, total_price=total_price)
     order.cart_items.set(cart_items)

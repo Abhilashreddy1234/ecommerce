@@ -8,6 +8,12 @@
         <img src="{{ offer.image.url }}" alt="{{ offer.title }}" class="offer-image">
         <h2>{{ offer.title }}</h2>
         <p>{{ offer.description }}</p>
+        <style>
+            .shop-now-btn {
+                text-decoration:none;
+            }
+        </style>
+
         <p>Discount: {{ offer.discount }}%</p>
         <a href="{% url 'products_with_offer' offer.id %}" class="shop-now-btn">Shop Now</a>
     </div>

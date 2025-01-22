@@ -25,12 +25,13 @@ SECRET_KEY = 'django-insecure-8%1y-y75w4o^q*=jv&r0h5@=&nb5k#$5!!pdv&vi*rm$c#10jc
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['ecommerce-ygec.onrender.com']
+ALLOWED_HOSTS = ['ecommerce-ygec.onrender.com','127.0.0.1']
 
 
 # Application definition
 
 INSTALLED_APPS = [
+    'jazzmin',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -127,3 +128,5 @@ MEDIA_URL = '/media/'
 STATIC_ROOT = BASE_DIR / 'staticfiles'
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+
