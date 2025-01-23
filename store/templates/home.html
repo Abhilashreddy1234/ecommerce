@@ -15,20 +15,40 @@
         {% endfor %}
     </div>
 </div>
-<h2 style="text-align:center;">Our Recommendations</h2>
 
-<div class="products">
-    {% for product in products %}
-    <div class="product-item">
-        <img src="{{ product.image.url }}" alt="{{ product.name }}">
-        <p>{{ product.name }}</p>
-        <p>Rs.{{ product.price }}</p>
-        <p>{{ product.description }}</p>
-        <form action="{% url 'add_to_cart' product.id %}" method="post">
-            {% csrf_token %}
-            <button type="submit">Add to Cart</button>
-        </form>
+<h2 style="text-align:center;">Our Recommendations</h2>
+<div class="main-layout-container">
+    <div class="filters-section">
+        <div class="sidebar-left">
+            <h1>Categories</h1>
+            <a href="{% url 'category_products' 1 %}">Children</a>
+            <a href="{% url 'category_products' 2 %}">General</a>
+            <a href="{% url 'category_products' 3 %}">Fashion</a>
+            <a href="{% url 'category_products' 4 %}">Electric Gadgets</a>
+        </div>
+        <div class="sidebar-left">
+            <h1>Filter</h1>
+            <!-- Add filter options here -->
+        </div>
+        <div class="sidebar-left">
+            <h1>Brands</h1>
+            <!-- Add brand options here -->
+        </div>
     </div>
-    {% endfor %}
+
+    <div class="products">
+        {% for product in products %}
+        <div class="product-item">
+            <img src="{{ product.image.url }}" alt="{{ product.name }}">
+            <p>{{ product.name }}</p>
+            <p>Rs.{{ product.price }}</p>
+            <p>{{ product.description }}</p>
+            <form action="{% url 'add_to_cart' product.id %}" method="post">
+                {% csrf_token %}
+                <button type="submit">Add to Cart</button>
+            </form>
+        </div>
+        {% endfor %}
+    </div>
 </div>
 {% endblock %}

@@ -129,4 +129,36 @@ STATIC_ROOT = BASE_DIR / 'staticfiles'
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
+JAZZMIN_SETTINGS = {
+    "site_title": "E-Commerce Admin",
+    "site_header": "E-Commerce Dashboard",
+    "site_brand": "My E-Commerce",
+    "welcome_sign": "Welcome to the E-Commerce Admin Panel!",
+    "show_sidebar": True,
+    "navigation_expanded": True,
+    "hide_apps": ["auth"],  # Hide apps you don't want visible
+    "hide_models": ["auth.User"],  # Hide specific models
+    "order_with_respect_to": ["app1", "app2"],  # Reorder apps/models
+    "icons": {
+        "auth": "fas fa-users-cog",
+        "auth.user": "fas fa-user",
+        "auth.group": "fas fa-users",
+    },
+    "default_icon_parents": "fas fa-chevron-circle-right",
+    "default_icon_children": "fas fa-circle",
+    "custom_links": {
+        "app1": [
+            {
+                "name": "Custom Link",
+                "url": "https://example.com",
+                "icon": "fas fa-external-link-alt",
+                "permissions": ["auth.view_user"],
+            },
+        ],
+    },
+    "theme": "darkly",  # Use a built-in Bootswatch theme
+    "show_ui_builder": True,  # Show the UI Builder in the sidebar (for admins)
+    "theme": "flatly",
+    
+}
 

@@ -309,16 +309,69 @@ ul li:last-child {
 }
 
 
-.products {
+ /* Main container with left sidebar and products on the right */
+.main-layout-container {
     display: flex;
-    flex-wrap: wrap;
+    flex-direction: row; 
     gap: 20px;
-    justify-content: space-evenly;
+    padding: 20px;
+    background: linear-gradient(135deg, #ffffff, #f0f0f0);
+    border-radius: 10px;
+}
+
+/* Sidebar container for filters, categories, and brands */
+.filters-section {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 25%;
+}
+
+/* Sidebar sections with only a border */
+.sidebar-left {
+    padding: 10px;
+    border: 1px solid #ccc; 
+    border-radius: 5px;
+    background-color: #fff; 
+}
+
+.sidebar-left h1 {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+    color: #333;
+    text-align: center;
+}
+
+/* Links for categories */
+.sidebar-left a {
+    display: block;
+    margin-bottom: 5px;
+    font-size: 1rem;
+    text-decoration: none;
+    color: #555;
+    padding: 5px;
+    transition: color 0.2s ease;
+}
+
+.sidebar-left a:hover {
+    color: orangered;
+}
+
+/* Product section on the right */
+.products {
+    flex: 1; 
+    display: flex;
+    flex-wrap: wrap; 
+    gap: 20px;
+    justify-content: space-between; 
     padding: 20px;
     background: linear-gradient(135deg, #f7f7f7, #eaeaea);
     border-radius: 10px;
-    height:200px;
 }
+
+/* Individual product styling */
+
+
 
 .product-item {
     flex: 1 1 calc(25% - 20px); /* Adjusts to fit four items in a row */
@@ -435,7 +488,7 @@ ul li:last-child {
     display: grid; /* Use grid for better alignment and flexibility */
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Responsive grid with min 300px per item */
     gap: 20px; /* Space between cart items */
-    margin: 20px auto; /* Centers the cart and adds vertical spacing */
+    margin: 20px auto; 
     max-width: 1200px; /* Limits the width of the cart */
     padding: 10px;
     box-sizing: border-box;
@@ -528,15 +581,13 @@ ul li:last-child {
         grid-template-columns: 1fr; /* Single-column layout for smaller screens */
     }
 }
-
-/* Container for the category products */
 .category-products-container {
     display: flex;
-    flex-direction: column; /* Ensures products are arranged in a column */
-    gap: 20px; /* Adds space between products */
+    flex-direction: column; 
+    gap: 20px; 
     margin: 20px auto;
-    max-width: 800px; /* Limits the width of the container */
-    padding: 0 15px; /* Adds padding for small screens */
+    max-width: 800px; 
+    padding: 0 15px; 
 }
 
 /* Individual product styling */
@@ -593,5 +644,20 @@ ul li:last-child {
 }
 
 .back-btn:hover {
-    background-color: #0056b3; /* Darker blue on hover */
+    background-color: #0056b3; 
+}
+
+.side-bar-left {
+    left: 10px; 
+    border: 1px solid #ccc;
+    padding: 10px;
+    background-color: #f9f9f9;
+    width: 200px; 
+    height: auto; 
+}
+
+.side-bar-left-content {
+    padding: 10px;
+    display: flex;
+    flex-direction: column; /* Align links vertically */
 }
