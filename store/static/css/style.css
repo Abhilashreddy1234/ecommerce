@@ -64,6 +64,100 @@ main {
     background-color: white;
     border-radius: 8px;
 }
+/* General mobile styles for screens smaller than 768px */
+@media (max-width: 768px) {
+    .top-bar {
+        padding: 5px 10px;
+        font-size: 0.8rem; /* Reduce font size */
+    }
+
+    .navbar {
+        padding: 5px 10px; /* Reduce padding for smaller screens */
+        height: 40px; /* Reduce navbar height */
+        top: 35px; /* Adjust based on .top-bar height */
+    }
+
+    .nav-links a,
+    .nav-links-right a {
+        margin: 0 5px; /* Reduce spacing between links */
+        font-size: 0.8rem; /* Smaller font for compact view */
+    }
+
+    .logo-image {
+        height: 40px; /* Adjust logo size */
+    }
+
+    .search-form input {
+        width: 70%; /* Take more width for search on mobile */
+        font-size: 0.8rem;
+    }
+
+    main {
+        padding: 15px;
+        margin: 15px auto;
+    }
+}
+
+/* Styles for very small screens (max-width: 480px) */
+@media (max-width: 480px) {
+    .top-bar {
+        flex-direction: column; /* Stack content vertically */
+        align-items: flex-start; /* Align text to the left */
+        padding: 5px 10px;
+    }
+
+    .navbar {
+        flex-direction: column; /* Stack navbar links */
+        align-items: flex-start;
+        height: auto; /* Allow height to adjust dynamically */
+        top: 40px; /* Ensure no overlap with .top-bar */
+    }
+
+    .nav-links {
+        display: flex;
+        flex-wrap: wrap; /* Wrap links if they don't fit */
+    }
+
+    .nav-links a,
+    .nav-links-right a {
+        margin: 5px 0; /* Add spacing between links vertically */
+        font-size: 0.8rem;
+    }
+
+    .search-form input {
+        width: 90%; /* Full width search bar */
+        margin: 10px 0;
+    }
+
+    main {
+        padding: 10px;
+        margin: 10px auto;
+    }
+}
+
+/* Styles for tablet (768px to 1024px) */
+@media (min-width: 769px) and (max-width: 1024px) {
+    .top-bar {
+        font-size: 0.85rem; /* Slightly smaller text */
+    }
+
+    .navbar {
+        height: 45px; /* Slightly reduce navbar height */
+    }
+
+    .nav-links a,
+    .nav-links-right a {
+        font-size: 0.85rem; /* Slightly smaller font size */
+    }
+
+    .search-form input {
+        font-size: 0.85rem;
+    }
+
+    main {
+        padding: 15px;
+    }
+}
 
 h1, h2 {
     color: black;
