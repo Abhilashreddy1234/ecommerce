@@ -2,11 +2,10 @@ body {
     margin: 0;
     font-family: Arial, sans-serif;
 }
-
 .top-bar {
     background-color: orangered;
     color: #333;
-    padding: 10px 0;
+    padding: 10px 0px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -23,23 +22,18 @@ body {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    background-color: #fff;
-    color: #000;
-    padding: 5px 20px;
-    margin-top: 0;
+    background-color: #fff; /* Ensure a clear contrast from the top bar */
+    color: #000; /* Update for visibility */
+    padding: 5px 20px; /* Reduced padding for smaller height */
+    margin-top: 0px; /* Matches the height of the .top-bar */
     left: 0;
     width: 100%;
     z-index: 999;
-    height: 50px;
-    position: fixed;
-    top: 40px;
-    border-bottom: 1px solid #ddd;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-.nav-links {
-    display: flex;
-    gap: 10px;
+    height: 50px; /* Reduced height */
+    position: fixed; /* Fixes navbar position */
+    top: 40px; /* Below the .top-bar */
+    border-bottom: 1px solid #ddd; /* Optional border for separation */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Adds subtle shadow for better visibility */
 }
 
 .nav-links a,
@@ -48,19 +42,21 @@ body {
     text-decoration: none;
     margin: 0 10px;
     padding: 5px 10px;
-    font-size: 0.9rem;
+    font-size: 0.9rem; /* Slightly smaller font for compact design */
 }
 
 .logo-image {
-    height: 50px;
-    width: auto;
+    height: 50px; /* Adjust height to match navbar */
+    width: auto; /* Maintain aspect ratio */
 }
 
 .search-form input {
     padding: 5px;
     margin-right: 5px;
-    font-size: 0.9rem;
+    font-size: 0.9rem; /* Matches the smaller navbar design */
 }
+
+
 
 main {
     padding: 20px;
@@ -69,10 +65,8 @@ main {
     border-radius: 8px;
 }
 
-.menu-toggle {
-    display: none;
-    font-size: 1.5em;
-    cursor: pointer;
+h1, h2 {
+    color: black;
 }
 
 ul {
@@ -89,9 +83,6 @@ ul li:last-child {
     border-bottom: none;
 }
 
-h1, h2 {
-    color: black;
-}
 
 .social-icons a {
     margin-right: 10px;
@@ -113,124 +104,6 @@ h1, h2 {
 .contact a:hover {
     color: #007bff;
 }
-
-@media (max-width: 768px) {
-    .top-bar {
-        padding: 5px 10px;
-        font-size: 0.8rem;
-    }
-
-    .navbar {
-        padding: 5px 10px;
-        height: 40px;
-        top: 35px;
-    }
-
-    .nav-links {
-        display: none;
-        flex-direction: column;
-        background-color: #fff;
-        position: absolute;
-        top: 50px;
-        left: 0;
-        width: 100%;
-        border-top: 1px solid #ddd;
-        z-index: 999;
-    }
-
-    .nav-links.active {
-        display: flex;
-    }
-
-    .nav-links a {
-        padding: 10px;
-        text-align: center;
-        border-bottom: 1px solid #ddd;
-    }
-
-    .menu-toggle {
-        display: block;
-    }
-
-    .search-form {
-        display: none;
-    }
-
-    .logo-image {
-        height: 40px;
-    }
-
-    .search-form input {
-        width: 70%;
-        font-size: 0.8rem;
-    }
-
-    main {
-        padding: 15px;
-        margin: 15px auto;
-    }
-}
-
-@media (max-width: 480px) {
-    .top-bar {
-        flex-direction: column;
-        align-items: flex-start;
-        padding: 5px 10px;
-    }
-
-    .navbar {
-        flex-direction: column;
-        align-items: flex-start;
-        height: auto;
-        padding: 10px;
-        top: 40px;
-    }
-
-    .nav-links {
-        display: flex;
-        flex-wrap: wrap;
-    }
-
-    .nav-links a,
-    .nav-links-right a {
-        margin: 5px 0;
-        font-size: 0.8rem;
-    }
-
-    .search-form input {
-        width: 90%;
-        margin: 10px 0;
-    }
-
-    main {
-        padding: 10px;
-        margin: 10px auto;
-    }
-}
-
-@media (min-width: 769px) and (max-width: 1024px) {
-    .top-bar {
-        font-size: 0.85rem;
-    }
-
-    .navbar {
-        height: 45px;
-    }
-
-    .nav-links a,
-    .nav-links-right a {
-        font-size: 0.85rem;
-    }
-
-    .search-form input {
-        font-size: 0.85rem;
-    }
-
-    main {
-        padding: 15px;
-    }
-}
-
 
 .notification {
     position: relative;
@@ -367,90 +240,6 @@ h1, h2 {
 
 .offer-item p strong {
     color: #333;
-}
-@media (max-width:720px){
-    .offer{
-        display:flex;
-        margin: 40px 0;
-        height:auto;
-        padding:10px;
-    }
-    .offers-container{
-        display:flex;
-    }
-    .offer-item{
-        display:flex;
-    }
-}
-/* For small devices (phones, less than 600px wide) */
-@media (max-width: 600px) {
-    .offers {
-        margin: 40px 0;
-        padding: 10px;
-        height: auto;
-    }
-
-    .offers h2 {
-        font-size: 20px;
-    }
-
-    .offers-container {
-        flex-direction: column;
-        align-items: center;
-        gap: 10px;
-    }
-
-    .offer-item {
-        width: 90%; /* Full width with small margins */
-        padding: 10px;
-    }
-
-    .offer-item img {
-        width: 80%;
-        height: auto; /* Maintain aspect ratio */
-    }
-}
-
-/* For medium devices (tablets, 600px to 992px wide) */
-@media (min-width: 600px) and (max-width: 992px) {
-    .offers {
-        margin: 60px 0;
-        padding: 15px;
-        height: auto;
-    }
-
-    .offers h2 {
-        font-size: 22px;
-    }
-
-    .offers-container {
-        gap: 15px;
-    }
-
-    .offer-item {
-        width: calc(45% - 15px); /* 2 items per row */
-    }
-
-    .offer-item img {
-        width: 75%;
-        height: 180px;
-    }
-}
-
-/* For large devices (desktops, 992px to 1200px wide) */
-@media (min-width: 992px) and (max-width: 1200px) {
-    .offers-container {
-        gap: 20px;
-    }
-
-    .offer-item {
-        width: calc(30% - 20px); /* 3 items per row */
-    }
-
-    .offer-item img {
-        width: 70%;
-        height: 200px;
-    }
 }
 
 /* Keyframes for Border Glow Animation */

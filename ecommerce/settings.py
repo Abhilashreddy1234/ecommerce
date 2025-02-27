@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-8%1y-y75w4o^q*=jv&r0h5@=&nb5k#$5!!pdv&vi*rm$c#10jc
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['ecommerce-ygec.onrender.com','127.0.0.1']
+ALLOWED_HOSTS = ['ecommerce-ryln.onrender.com','127.0.0.1']
 
 
 # Application definition
@@ -118,14 +118,16 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.1/howto/static-files/
 
-STATIC_URL = '/static/'
+STATIC_URL = '/staticfiles/'
+STATICFILES_DIRS = [os.path.join(BASE_DIR, 'staticfiles')] 
+BASE_DIR = Path(__file__).resolve().parent.parent
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 MEDIA_URL = '/media/'
-STATIC_ROOT = BASE_DIR / 'staticfiles'
+STATIC_ROOT = BASE_DIR / 'static'
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
