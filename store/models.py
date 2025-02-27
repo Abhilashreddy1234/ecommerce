@@ -21,6 +21,14 @@ class Category(models.Model):
 
     def __str__(self):
         return self.title
+class Offer(models.Model):
+    title = models.CharField(max_length=200)
+    description = models.TextField()
+    discount = models.DecimalField(max_digits=5, decimal_places=2)  # e.g., 20.00 for 20%
+    image = models.ImageField(upload_to='offers/')
+    created_at = models.DateTimeField(auto_now_add=True)
+    def __str__(self):
+        return self.title
 class Product(models.Model):
     name = models.CharField(max_length=100)
     description = models.TextField()
