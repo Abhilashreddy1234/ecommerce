@@ -78,8 +78,12 @@ WSGI_APPLICATION = 'ecommerce.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'receiptprint',
+        'PORT':'5432',
+        'USER':'receiptprint_user',
+        'PASSWORD':'T6DNUGYRqfqHxeKciFTOYHugvDGly7PY',
+        'HOST':'dpg-cuoomat6l47c73cfhhrg-a',
     }
 }
 
