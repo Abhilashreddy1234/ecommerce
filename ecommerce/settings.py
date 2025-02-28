@@ -83,7 +83,8 @@ DATABASES = {
         'PORT':'5432',
         'USER':'receiptprint_user',
         'PASSWORD':'T6DNUGYRqfqHxeKciFTOYHugvDGly7PY',
-        'HOST':'dpg-cuoomat6l47c73cfhhrg-a',
+        'HOST':'dpg-cuoomat6l47c73cfhhrg-a.oregon-postgres.render.com',
+
     }
 }
 
